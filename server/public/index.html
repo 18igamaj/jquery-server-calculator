@@ -13,13 +13,21 @@
     <h1> Server Side Calculator</h1>
     <!-- Created my inputs, and my submit button -->
     <form id="all-control">
-        <input id="first-number" type="text" placeholder="First-Number" > 
-        <button id="add">+</button>
-        <button id="subtract">-</button>
-        <button id="multiply">*</button>
-        <button id="divide">/</button>
-        <input id="second-number" type="text" placeholder="Second-number">
+        <input id="first-number" type="number" placeholder="First-Number" > 
+        <div id="all-ops">
+        <button class="add">+</button>
+        <button class="subtract">-</button>
+        <button class="multiply">*</button>
+        <button class="divide">/</button>
+        </div>
+        <input id="second-number" type="number" placeholder="Second-number">
         <button id-="submit">=</button>
     </form>
+    <div id="solutions">
+        <h2> Calculations:</h2>
+        <ul id="solution-history">
+
+        </ul>
+    </div>
 </body>
 </html>
