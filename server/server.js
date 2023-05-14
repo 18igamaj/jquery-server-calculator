@@ -27,16 +27,59 @@ app.use(bodyParser.urlencoded({extended: true}))
    
 // })
 
+//created where I will store my post data. It will be the history array
+// we initialized our finder to req.body so that we can incorporate into
+// the parameters of our solution function
+// then we used our history 
+
 app.post('/history', function (req , res){
  
-    history.push(req.body)
-    console.log('got the history', history)
-    res.send(201)
+
+  let finder = req.body 
+  
+  console.log('got the history', finder)
+    
+   let total = solution((finder.firstNum/1),(finder.secondNum/1),finder.operator)
+    console.log(total)
+
+    history.push({firstNum:finder.firstNum,secondNum:finder.secondNum,operator:finder.operator,total})
+    console.log('')
+    res.sendStatus(201)
 })
 
+app.get(history, function(req,res){
+    res.send(history)
+    console.log('My server is now sending over what is in our data', history)
+})
+
+// created a function that finds my solution to the calculations inputted
+// created conditionals that if the data value matches the input it will compute the
+// first number and the second number and give back the total.
 
 
+function solution(firstNum,secondNum,output){
+    let total = 0
+    if( '-' === output){
+       total = firstNum - secondNum 
+    }
+    else if( '+' === output){
+       total = firstNum + secondNum
+    }
+    else if( '*' === output){
 
+       total = firstNum * secondNum 
+    }
+    else if('/' === output){
+       total = firstNum / secondNum 
+       
+    }return total
+    
+}
+
+// app.get(history,function(req,res){
+
+    
+// })
 
 
 
