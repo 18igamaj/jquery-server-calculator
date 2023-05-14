@@ -30,7 +30,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 //created where I will store my post data. It will be the history array
 // we initialized our finder to req.body so that we can incorporate into
 // the parameters of our solution function
-// then we used our history 
+// then we used our history.push to send in our newly defined inputs at their original properties,
+// and added the new total property.
 
 app.post('/history', function (req , res){
  
@@ -46,6 +47,9 @@ app.post('/history', function (req , res){
     console.log('')
     res.sendStatus(201)
 })
+
+// our app.get is pulling our history array and it's corresponding data from the server and back on the 
+// data
 
 app.get(history, function(req,res){
     res.send(history)
