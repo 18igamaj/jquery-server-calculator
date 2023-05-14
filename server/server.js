@@ -44,7 +44,6 @@ app.post('/history', function (req , res){
     console.log(total)
 
     history.push({firstNum:finder.firstNum,secondNum:finder.secondNum,operator:finder.operator,total})
-    console.log('')
     res.sendStatus(201)
 })
 
